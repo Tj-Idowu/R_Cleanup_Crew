@@ -6,7 +6,7 @@ library(dplyr)
 library(data.table)
 
 # Set working directory
-setwd("/scratch/12355656/Benchmarking/Simulated_Metagenomes/results/metaphlan")
+setwd("/Benchmarking/Simulated_Metagenomes/results/metaphlan")
 
 # Load in .csv sample files
 F3<- read_csv("all_Bacillus_metaphlan_F3.csv")
@@ -80,7 +80,7 @@ for (i in 1:length(matching_rows)) {
 colnames(AP_table)[1]<- "Conditions"
 AP_table[is.na(AP_table)] <- 0
 # Write out into a .csv file
-write.csv(AP_table, "/scratch/12355656/Benchmarking/Simulated_Metagenomes/results/metaphlan/Bacillus_F3_metaphlan_allPositives.csv", row.names=FALSE)
+write.csv(AP_table, "Bacillus_F3_metaphlan_allPositives.csv", row.names=FALSE)
 
 # Do "Change table format for all positive data" for the true positives
 # Be careful and make sure that all the variables have been changed to the appropriate ones
@@ -100,7 +100,7 @@ for (i in 1:length(matching_rows)) {
 }
 colnames(TP_table)[1]<- "Conditions"
 TP_table[is.na(TP_table)] <- 0
-write.csv(TP_table, "/scratch/12355656/Benchmarking/Simulated_Metagenomes/results/metaphlan/Bacillus_F3_metaphlan_truePositives.csv", row.names=FALSE)
+write.csv(TP_table, "Bacillus_F3_metaphlan_truePositives.csv", row.names=FALSE)
 
 # False positive table
 FP_table<- data.frame(
@@ -119,7 +119,7 @@ for (i in 1:length(matching_rows)) {
 }
 colnames(FP_table)[1]<- "Conditions"
 FP_table[is.na(FP_table)] <- 0
-write.csv(FP_table, "/scratch/12355656/Benchmarking/Simulated_Metagenomes/results/metaphlan/Bacillus_F3_metaphlan_falsePositives.csv", row.names=FALSE)
+write.csv(FP_table, "Bacillus_F3_metaphlan_falsePositives.csv", row.names=FALSE)
 
 # False negative table
 FN_table<- data.frame(
@@ -138,7 +138,7 @@ for (i in 1:length(matching_rows)) {
 }
 colnames(FN_table)[1]<- "Conditions"
 FN_table[is.na(FN_table)] <- 0
-write.csv(FN_table, "/scratch/12355656/Benchmarking/Simulated_Metagenomes/results/metaphlan/Bacillus_F3_metaphlan_falseNegatives.csv", row.names=FALSE)
+write.csv(FN_table, "Bacillus_F3_metaphlan_falseNegatives.csv", row.names=FALSE)
 
 # Decoy mapping
 Decoy_table<- data.frame(
@@ -157,4 +157,4 @@ for (i in 1:length(matching_rows)) {
 }
 colnames(Decoy_table)[1]<- "Conditions"
 Decoy_table[is.na(Decoy_table)] <- 0
-write.csv(Decoy_table, "/scratch/12355656/Benchmarking/Simulated_Metagenomes/results/metaphlan/Bacillus_F3_metaphlan_DecoytoPathRef.csv", row.names=FALSE)
+write.csv(Decoy_table, "Bacillus_F3_metaphlan_DecoytoPathRef.csv", row.names=FALSE)
