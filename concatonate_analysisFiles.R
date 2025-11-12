@@ -33,11 +33,11 @@ read_files <- function(directory) {
 }
 
 # Replace 'directory_path' with the path to your folder containing .gz files
-directory_path <- "/scratch/12355656/Benchmarking/Simulated_Metagenomes/Tools_Results/zero/kma"
+directory_path <- "Simulated_Metagenomes/Tools_Results/zero/kma"
 all_data <- read_files(directory_path)
 
 # Print the first few rows of the combined dataframe
 print(head(all_data))
 
 # Export dataframe as csv
-write.csv(all_data, "/scratch/12355656/Benchmarking/Simulated_Metagenomes/results/all_kma_Simulated_Wastewater.csv", row.names=FALSE)
+write.csv(all_data, "all_kma_Simulated_Wastewater.csv", row.names=FALSE)
