@@ -4,8 +4,6 @@ library(stringr)
 library(tidyr)
 library(dplyr)
 library(data.table)
-#library(tidyverse)***
-#library(pbapply) # for progress bar during file reading
 
 # Set working directory
 setwd("/Benchmarking/Simulated_Metagenomes/results/centrifuge")
@@ -16,12 +14,11 @@ F3<- read_csv("Bacillus_F3_classification_centrifuge.csv")
 # Print the first few rows of the dataframe
 print(head(F3))
 
-# Remove ".bowtie2.bz2" from file column
+# Remove ".tsv" from file column
 F3$file<- gsub('.tsv','', F3$file)
 
 # Pathogen sequence
-# To select all the data based on one sequence source from one column. Chromosome or plasmid of bacteria but not whole
- bacteria genome.
+# To select all the data based on one sequence source from one column. Chromosome or plasmid of bacteria but not whole bacteria genome.
 # Selected sample sequences
 anthracis_pl1<-F3[grep("NC_007530.2*", F3$Read_ID), ]
 
@@ -99,8 +96,8 @@ write_csv(AP_table, "Bacillus_F3_centrifuge_allPositives.csv", row.names=FALSE)
 
 #############################################
 
-# Do "Change table format for all positive data" for the true positives
-# Be careful and make sure that all the variables have been changed to the appropriate ones
+# Change table format for all positive data for the true positives
+# Make sure that all the variables have been changed to the appropriate ones
 TP_table<- data.frame(
   row_names = c("r1-0","r1000-1","r100-1","r10-1","r1-1","r1-10","r1-100","r1-1000","r0-1"),
   stringsAsFactors = FALSE)
