@@ -11,7 +11,7 @@ setwd("/Benchmarking/Simulated_Metagenomes/results/kma")
 # Load in .csv sample files
 F3<- read_csv("Bacillus_F3_classification_kma.csv")
 
-# Remove ".frah.gz" from file column
+# Remove ".frag.gz" from file column
 F3$file<- gsub('.frag.gz','', F3$file)
 
 colnames(F3)<- c("read_sequence", "mappedTo", "mapping_score", "start_position", "end_position", "taxID", "readID", "file")
