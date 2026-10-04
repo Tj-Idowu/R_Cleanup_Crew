@@ -11,7 +11,7 @@ setwd("/Benchmarking/Simulated_Metagenomes/results/kraken")
 # Load in .csv sample files
 F3<- read_csv("Bacillus_F3_kraken.csv")
 
-# Remove ".tsv" from file column
+# Remove "_out.tsv" from file column
 F3$file<- gsub('_out.tsv','', F3$file)
 
 colnames(F3)<- c("classification", "readID", "taxID", "seqLength", "otherInfo", "file")
@@ -84,8 +84,8 @@ AP_table[is.na(AP_table)] <- 0
 # Write out into a .csv file
 write_csv(AP_table, "Bacillus_F3_kraken_allPositives.csv", row.names=FALSE)
 
-# Do "Change table format for all positive data" for the true positives
-# Be careful and make sure that all the variables have been changed to the appropriate ones
+# Change table format for all positive data for the true positives
+# Make sure that all the variables have been changed to the appropriate ones
 TP_table<- data.frame(
   row_names = c("r1-0","r1000-1","r100-1","r10-1","r1-1","r1-10","r1-100","r1-1000","r0-1"),
   stringsAsFactors = FALSE)
